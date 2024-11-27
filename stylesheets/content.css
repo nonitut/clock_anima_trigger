@@ -1,0 +1,138 @@
+*{ box-sizing: border-box;}
+
+@font-face {
+font-family: "CarlaSansLight";
+src: url("../fonts/CarlaSansLight.ttf") format("truetype");
+font-style: Light;
+font-weight: Light;
+}
+
+p{ font-family: 'CarlaSansLight'; }
+
+
+.first_section{
+    display: flex;
+    width: 100%;
+}
+
+.btn{
+    width: 400px;
+    height: 75px;
+    background: lightsteelblue;
+    color: lemonchiffon;
+    border: 0.5px solid lemonchiffon;
+    border-radius: 5px;
+    margin: 30px;
+    font-weight: bolder; /* толщина текста */
+    letter-spacing: 3px; /* межбуква */
+    text-align: center;
+    transition: all 0.5s ease-in;
+}
+
+.btn:hover{
+    background: rgb(108, 124, 145);
+    transition: all 0.5s ease-out;
+}
+
+.container{
+    background: lemonchiffon;
+    color: lightsteelblue;
+    width: 400px;
+    height: 75px;
+    overflow: hidden; /* обрезает контент - еесли он не поместился в контейнер */
+    position: relative; /* стандартная иерархичная позиция - див учитывается в структуре */
+    margin: 30px;
+    border-radius: 5px;
+}
+
+.row{
+    width: 1000px;
+    height: 75px; 
+    /* vertical-align: middle; */
+    padding-top: 30px;
+    position: absolute;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: lin 10s linear infinite;
+}
+
+@keyframes lin {
+    0%{ left: -120%; }
+    100%{ left: 2%; }
+}
+
+.btn:hover ~ .container .row {
+    animation-play-state: paused;
+    transition: all 0.5s ease-out;
+} /* останавливаем нашу бегущую строку при наведении на кнопку,
+получается анимация по триггеру */
+
+
+
+.clock{
+    width: 200px;
+    height: 100px;
+    position: relative;
+    margin: 30px;
+    border: 1px solid lightblue;
+}
+
+.cl-el{
+    width: 40px;
+    height: 98px;
+    display: inline-block;
+    background:  lemonchiffon;
+    color: rgb(108, 124, 145);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.cl-ed{
+    height: 100px;
+    display: inline-block;
+    color: rgb(108, 124, 145);
+    font-size: 50px;
+    vertical-align: top;
+    margin-top: 18px;
+    /* font-weight: bold; */
+}
+
+.mn{
+    width: 100%;
+    font-size: 50px;
+    text-align: center;
+    line-height: 100px;
+    position: absolute;
+    top: 0px;
+}
+
+.sec-e{
+    animation: sec 10s linear infinite;
+}
+
+@keyframes sec{
+    0%{top: 0%;}
+    100%{ top: -1000%;}
+}
+
+.sec-d{ 
+    animation: secdes 60s steps(6) infinite ;
+}
+
+@keyframes secdes {
+    0%{top: 0%;}
+    100%{ top: -600%;}
+}
+
+.min-e{ animation: min 600s steps(10) infinite; }
+@keyframes min {
+    0%{top: 0%;}
+    100%{ top: -1000%;}
+}
+
+.min-d{ animation: mindes 3600s steps(6) infinite;}
+@keyframes mindes {
+    0%{top: 0%;}
+    100%{ top: -600%;}
+}
